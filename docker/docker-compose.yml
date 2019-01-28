@@ -1,0 +1,17 @@
+version: '3'
+services:
+  nb:
+    build:
+      dockerfile: docker/Dockerfile
+      context: ../
+    volumes:
+      - home:/home/jovyan
+      - ../:/home/jovyan/repo
+    ports:
+      - "8888:8888"
+    user: "1000:1000"
+    environment:
+      - JUPYTER_TOKEN=nb
+
+volumes:
+  home: {}
